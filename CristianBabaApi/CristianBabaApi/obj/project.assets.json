@@ -12225,11 +12225,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\crist\\Desktop\\school\\Tweedejaar\\CloudApi\\Cloud\\CristianBabaApi\\CristianBabaApi\\CristianBabaApi.csproj",
+      "projectUniqueName": "C:\\Users\\crist\\Desktop\\school\\Tweedejaar\\CloudApi\\Cloud\\CloudApi\\CristianBabaApi\\CristianBabaApi\\CristianBabaApi.csproj",
       "projectName": "CristianBabaApi",
-      "projectPath": "C:\\Users\\crist\\Desktop\\school\\Tweedejaar\\CloudApi\\Cloud\\CristianBabaApi\\CristianBabaApi\\CristianBabaApi.csproj",
+      "projectPath": "C:\\Users\\crist\\Desktop\\school\\Tweedejaar\\CloudApi\\Cloud\\CloudApi\\CristianBabaApi\\CristianBabaApi\\CristianBabaApi.csproj",
       "packagesPath": "C:\\Users\\crist\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\crist\\Desktop\\school\\Tweedejaar\\CloudApi\\Cloud\\CristianBabaApi\\CristianBabaApi\\obj\\",
+      "outputPath": "C:\\Users\\crist\\Desktop\\school\\Tweedejaar\\CloudApi\\Cloud\\CloudApi\\CristianBabaApi\\CristianBabaApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

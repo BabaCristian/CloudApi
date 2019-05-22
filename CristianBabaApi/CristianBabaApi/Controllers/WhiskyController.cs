@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CristianBabaApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CristianBabaApi.Controllers
 {
@@ -11,36 +13,77 @@ namespace CristianBabaApi.Controllers
     [ApiController]
     public class WhiskyController : ControllerBase
     {
-        // GET: api/Whisky
+        public LibraryContext _context { get; set; }
+        public WhiskyController(LibraryContext ctxt)
+        {
+            _context = ctxt;
+        }
+
+        //get all whiskies
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Whisky> GetWhiskies()
         {
-            return new string[] { "value1", "value2" };
+            return _context.Whiskies.ToList();
         }
 
-        // GET: api/Whisky/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+
+        //get Whisky by id
+        [Route("{id}")]
+        [HttpGet]
+        public ActionResult<Whisky> Getwhisky(int id)
         {
-            return "value";
+            var thewhisky = _context.Whiskies.Include(whisky =>whisky.Name)
+                                        .SingleOrDefault(brand => brand.Id == id);
+            if (thewhisky == null)
+                return NotFound();
+
+            return thewhisky;
         }
 
-        // POST: api/Whisky
-        [HttpPost]
-        public void Post([FromBody] string value)
+
+        // add a whisky
+             [HttpPost]
+        public ActionResult<Whisky> AddWhisky([FromBody]Whisky whisky)
         {
+            _context.Whiskies.Add(whisky);
+            _context.SaveChanges();
+            //return whisky by id 
+            return Created("", whisky);
+        }
+    //delete a whisky
+        [Route("{id}")]
+        [HttpDelete]
+        public IActionResult DeleteWhisky(int id)
+        {
+            var whisky = _context.Whiskies.Find(id);
+            if (whisky == null)
+                return NotFound();
+
+            _context.Whiskies.Remove(whisky);
+            _context.SaveChanges();             
+            return NoContent();
         }
 
-        // PUT: api/Whisky/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+                    [HttpPost]
+            public ActionResult<Whisky> AddBook([FromBody]Whisky whisky)
+            {
+                _context.Whiskies.Add(whisky);
+                _context.SaveChanges();
+                //return boek met ID
+                return Created("", whisky);
+            }
+
+        [HttpPut]
+        public ActionResult<Whisky> UpdateBook([FromBody]Whisky whisky)
         {
+            //Boek updaten
+            _context.Whiskies.Update(whisky);
+            _context.SaveChanges();
+            //return boek met ID
+            return Created("", whisky);
         }
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+
+
     }
 }

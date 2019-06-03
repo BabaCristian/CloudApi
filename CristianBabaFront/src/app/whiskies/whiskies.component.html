@@ -1,0 +1,46 @@
+<h1> Our Cocktails</h1>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Search bar-->
+<div class="main">
+  <div class="input-group">
+    <input type="text" [(ngModel)]="data" class="form-control" placeholder="Search whisky by name">
+    <div class="input-group-append">
+      <button class="btn btn-secondary" (click)="Searchbyname(data)" type="button">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>  
+</div>
+
+<!--Paging -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" (click)=paginationPrev()><a class="page-link" >Previous</a></li>
+      <li class="page-item  *ngFor="let whisky of whiskies><a class="page-link">{{pagina}}</a></li>
+      <li class="page-item" (click)=paginationNext()><a class="page-link">Next</a></li>
+    </ul>
+  </nav>
+
+<div class="d-inline-block">
+    <div class="container" *ngFor="let whisky of whiskies">
+      <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" [src]="whisky.pictureurl" height="200" *ngIf="whisky.pictureurl" alt="Card image cap">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h2>{{whisky.name}}</h2></li>
+                        <li class="list-group-item">price : € {{whisky.price}}</li>
+                        <li class="list-group-item">rating : {{whisky.rating}}</li>
+
+                      </ul>
+                  <h5 class="card-text"></h5>
+                  <button (click)="Getdetails(whisky.id)">See details</button>
+                </div>
+              </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    

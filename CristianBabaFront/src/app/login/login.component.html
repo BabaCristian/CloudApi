@@ -1,0 +1,8 @@
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item profile" *ngIf="!auth.isAuthenticated()" [routerLinkActive]="['active']">
+            <a (click)="auth.login()" class="nav-link waves-light" mdbRippleRadius>Log In</a>
+    </li>
+    <li class="nav-item profile" *ngIf="auth.isAuthenticated()" [routerLinkActive]="['active']">
+        <a (click)="auth.logout()" class="nav-link waves-light" mdbRippleRadius>Log Out</a>
+</li>
+</ul>

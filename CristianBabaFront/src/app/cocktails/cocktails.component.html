@@ -1,0 +1,40 @@
+<h1> Our Cocktails</h1>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<!-- Search bar-->
+<div class="main">
+  <div class="input-group">
+    <input type="text" [(ngModel)]="data" class="form-control" placeholder="Search Cocktail by name">
+    <div class="input-group-append">
+      <button class="btn btn-secondary" (click)="Searchdata(data)" type="button">
+        <i class="fa fa-search"></i>
+      </button>
+   </div>
+  </div>  
+</div>
+
+
+<div class="d-inline-block">
+<div class="container" *ngFor="let cocktail of cocktails.drinks">
+  <div class="row">
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" [src]="cocktail.strDrinkThumb" height="200" *ngIf="cocktail.strDrinkThumb" alt="Card image cap">
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><h2>{{cocktail.strDrink}}</h2></li>
+                    <li class="list-group-item">{{cocktail.strIngredient1}}</li>
+                    <li class="list-group-item">{{cocktail.strIngredient2}}</li>
+                    <li class="list-group-item">{{cocktail.strIngredient3}}</li>
+                  </ul>
+              <h5 class="card-text"></h5>
+              <button (click)="Getdetails(cocktail.idDrink)">See details</button>
+            </div>
+          </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+
+ 

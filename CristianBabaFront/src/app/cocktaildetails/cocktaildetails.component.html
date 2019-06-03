@@ -1,0 +1,38 @@
+  <div *ngIf="details.drinks">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+
+
+  <div class= "container" *ngFor="let detail of details.drinks">
+  <div class="wrapper">
+      <div class="tile job-bucket">
+        <div class="front">
+          <div class="contents">
+              <img  [src]="detail.strDrinkThumb" *ngIf="detail.strDrinkThumb" ><br>
+            <h3>{{detail.strDrink}}</h3>
+            <p>{{detail.strInstructions}}</p>
+            <br>
+            <a href="#">View Ingredients</a>
+          </div>
+        </div>
+        <div class="back">
+          <h3>Ingredients</h3>
+          <a href="#">{{detail.strIngredient1}}</a>
+          <a href="#">{{detail.strIngredient2}}</a>
+          <a href="#">{{detail.strIngredient3}}</a>
+          <a href="#">{{detail.strIngredient4}}</a>
+        </div>
+      </div>
+    </div>
+  </div>

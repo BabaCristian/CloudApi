@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+		<table class="table table-image">
+		  <thead>
+		    <tr>
+            <th scope="col">Image</th>
+          <th scope="col">ID</th>
+		      <th scope="col">Name</th>
+		      <th scope="col">Price</th>
+		      <th scope="col">Rating</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td class="w-25">
+          <img  [src]="details.pictureurl" *ngIf="details.pictureurl" style="height: 150px" ><br>
+		      </td>
+		      <td>{{details.id}}</td>
+		      <td>{{details.name}}</td>
+		      <td>price :  € {{details.price}}</td>
+          <td>{{details.rating}}</td>
+        </tr>
+        <button type="button" id="deletebtn" class="btn btn-danger">Delete</button>
+        <button type="button" id="updatebtn" class="btn btn-dark">Update</button>
+        
+		  </tbody>
+		</table>   
+    </div>
+  </div>
+</div>

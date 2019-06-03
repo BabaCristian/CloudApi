@@ -28,7 +28,7 @@ namespace CristianBabaApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<LibraryContext>(
-            Options => Options.UseSqlServer(
+            Options => Options.UseSqlServer(  //.UseMySQL
            Configuration.GetConnectionString("DefaultConnection")
            )
            );
